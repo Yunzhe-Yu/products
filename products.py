@@ -1,4 +1,20 @@
+# read file
 products = [] # create a new list
+
+with open('products_price.csv', 'r', encoding = 'utf-8') as f:
+	for line in f:
+		if 'Items, Price' in line:
+			continue # jump to next loop
+					 
+		name, price = line.strip().split(',') # split to cut the line use everything
+		# use strip to remove '\n'
+		# From left to right
+		# After split will generate a list []
+		# name = s[0]
+		# price = s[1]
+		products.append([name, price])
+
+print(products)
 
 # 2-D list
 # insert a list into the first list
